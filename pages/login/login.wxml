@@ -21,12 +21,13 @@
         </view>
 
          <!--按钮-->
+        <!--按钮-->
         <view>
-            <button class="loginBtn" type="primary" form-type='submit'>注册</button>
+            <button class="loginBtn" type="primary" form-type='submit'>登录</button>
         </view>
 
         <view>
-            <button class="goLoginBtn" type="warn" bindtap="goLoginPage">返回登录</button>
+            <button class="goRegistBtn" type="warn" bindtap="goRegistPage">没有账号？点击注册</button>
         </view>
 </form>
   </view>
