@@ -1,0 +1,45 @@
+/**mine.wxss**/
+page {
+  background-color: lightsalmon
+}
+
+.container {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.faceImage {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+.container-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.info-items {
+    margin-left: 30px;
+}
+
+.container-video {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    text-align: center;
+    border: solid 1px;
+}
+
+.video-info {
+    width: 100%;
+}
+
+.video-info-selected {
+    background-color: gainsboro;
+}
