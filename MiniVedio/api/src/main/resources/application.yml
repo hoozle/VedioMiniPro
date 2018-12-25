@@ -1,0 +1,15 @@
+spring:
+    #数据源配置
+    datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/minivedio
+        username: root
+        password: root
+        #druid数据库连接池
+        druid:
+            initialSize: 1
+            maxActive: 20
+mybatis:
+    typeAliases: com.hnuc.pojo
+    mapperLocations: classpath:mapper/*.xml
+
