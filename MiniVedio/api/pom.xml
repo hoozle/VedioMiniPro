@@ -9,7 +9,6 @@
 	<packaging>jar</packaging>
 
 	<name>api</name>
-	<description>Demo project for Spring Boot</description>
 
 	<parent>
 		<groupId>com.hnuc.MiniVedio</groupId>
@@ -20,7 +19,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.hnuc.MiniVedio</groupId>
-			<artifactId>pojo</artifactId>
+			<artifactId>service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
