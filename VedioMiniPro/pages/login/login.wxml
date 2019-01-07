@@ -4,7 +4,7 @@
     <image class="login-img" src="../resource/images/bgimg.jpg"></image>
   </view>
   <view class="login-form">
-    <form bindsubmit='doRegister'>
+    <form bindsubmit='doLogin'>
        <!--账号-->
         <view class="inputView">
             <image class="nameImage" src="../resource/images/username.png"></image>
@@ -27,7 +27,7 @@
         </view>
 
         <view>
-            <button class="goRegistBtn" type="warn" bindtap="goRegistPage">没有账号？点击注册</button>
+            <button class="goRegistBtn" type="warn" bindtap="goRegisterPage">没有账号？点击注册</button>
         </view>
 </form>
   </view>

@@ -1,8 +1,8 @@
 package com.hnuc.service;
 
 
-import com.hnuc.MiniVedio.pojo.User;
-import com.hnuc.MiniVedio.pojo.UserReport;
+import com.hnuc.pojo.User;
+import com.hnuc.pojo.UserReport;
 
 public interface UserService {
 	

@@ -1,29 +1,47 @@
 package com.hnuc.service.Impl;
 
-import com.hnuc.MiniVedio.pojo.User;
-import com.hnuc.MiniVedio.pojo.UserReport;
+
+import com.hnuc.common.util.UUIDUtil;
 import com.hnuc.dao.UserMapper;
+import com.hnuc.pojo.User;
+import com.hnuc.pojo.UserReport;
 import com.hnuc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserService{
 
     @Autowired
-    UserMapper userMapper;
+    private UserMapper userMapper;
 
     @Override
     public boolean queryUsernameIsExist(String username) {
-        return false;
+        User user = null;
+
+        user = userMapper.selectByUsername(username);
+
+        if(null != user){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override
     public void saveUser(User user) {
+        if(null != user){
+            user.setId(UUIDUtil.getUUID());
+            userMapper.insert(user);
+        }
 
     }
 
     @Override
     public User queryUserForLogin(String username, String password) {
-        return null;
+        User user = null;
+        user = userMapper.selectByUsernameAndPwd(username, password);
+        return user;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.hnuc.MiniVedio.pojo;
+package com.hnuc.pojo;
 
 public class UserFan {
     /**

@@ -1,7 +1,7 @@
 package com.hnuc.dao;
 
 
-import com.hnuc.MiniVedio.pojo.UserReport;
+import com.hnuc.pojo.UserReport;
 
 public interface UserReportMapper {
     /**

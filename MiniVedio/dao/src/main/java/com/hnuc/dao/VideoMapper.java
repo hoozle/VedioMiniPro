@@ -1,6 +1,7 @@
 package com.hnuc.dao;
 
-import com.hnuc.MiniVedio.pojo.Video;
+
+import com.hnuc.pojo.Video;
 
 public interface VideoMapper {
     /**

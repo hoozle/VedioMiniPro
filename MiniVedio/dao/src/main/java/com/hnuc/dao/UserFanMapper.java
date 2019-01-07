@@ -1,7 +1,7 @@
 package com.hnuc.dao;
 
 
-import com.hnuc.MiniVedio.pojo.UserFan;
+import com.hnuc.pojo.UserFan;
 
 public interface UserFanMapper {
     /**

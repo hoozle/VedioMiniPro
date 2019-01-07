@@ -1,4 +1,4 @@
-package com.hnuc.MiniVedio.pojo;
+package com.hnuc.pojo;
 
 import java.util.Date;
 

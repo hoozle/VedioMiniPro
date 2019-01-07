@@ -1,14 +1,27 @@
 spring:
-    #数据源配置
+    #閰嶇疆鏁版嵁
     datasource:
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/minivedio
+        url: jdbc:mysql://localhost:3306/minivedio?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
         username: root
-        password: root
-        #druid数据库连接池
+        password: imhui1995
+        #druid鏁版嵁搴撹繛鎺ユ睜
         druid:
-            initialSize: 1
+            intialSize: 1
             maxActive: 20
+    thymeleaf:
+      cache: false
+    #閰嶇疆redis
+    redis:
+      database: 0
+      host: 192.168.74.128
+      jedis:
+        pool:
+          max-idle: 10
+          min-idle: 0
+      timeout: 1000
+      port: 6379
+
 mybatis:
     typeAliases: com.hnuc.pojo
     mapperLocations: classpath:mapper/*.xml

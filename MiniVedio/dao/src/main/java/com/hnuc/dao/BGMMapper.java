@@ -1,7 +1,7 @@
 package com.hnuc.dao;
 
 
-import com.hnuc.MiniVedio.pojo.BGM;
+import com.hnuc.pojo.BGM;
 
 public interface BGMMapper {
     /**

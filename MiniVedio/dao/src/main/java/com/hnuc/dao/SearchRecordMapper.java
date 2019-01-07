@@ -1,6 +1,7 @@
 package com.hnuc.dao;
 
-import com.hnuc.MiniVedio.pojo.SearchRecord;
+
+import com.hnuc.pojo.SearchRecord;
 
 public interface SearchRecordMapper {
     /**

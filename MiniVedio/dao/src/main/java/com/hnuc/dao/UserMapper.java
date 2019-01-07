@@ -1,7 +1,10 @@
 package com.hnuc.dao;
 
 
-import com.hnuc.MiniVedio.pojo.User;
+import com.hnuc.pojo.User;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
 
 public interface UserMapper {
     /**
@@ -51,4 +54,10 @@ public interface UserMapper {
      * @mbg.generated Wed Dec 19 16:38:07 CST 2018
      */
     int updateByPrimaryKey(User record);
+
+
+
+    User selectByUsername(String username);
+
+    User selectByUsernameAndPwd(@Param("username") String username, @Param("password") String password);
 }
