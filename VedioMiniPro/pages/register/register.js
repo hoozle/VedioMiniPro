@@ -20,12 +20,12 @@ Page({
           duration: 2000
         });        
       }else{
-        var ServiceUrl = app.serverUrl + '/register';
+        var serviceUrl = app.serverUrl + '/register';
         wx.showLoading({
           title: '请稍等！',
         })
         wx.request({
-          url: ServiceUrl,
+          url: serviceUrl,
           method: "POST",
           dataType: "json",
           header: {

@@ -49,4 +49,9 @@ public class JSONResult {
     public static JSONResult errorMsg(String msg){
         return new JSONResult(500, msg,null);
     }
+
+    public static JSONResult retOK(Object data)
+    {
+        return new JSONResult(data);
+    }
 }

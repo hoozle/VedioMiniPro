@@ -1,7 +1,7 @@
 package com.hnuc.service.Impl;
 
 
-import com.hnuc.common.util.UUIDUtil;
+import com.hnuc.common.util.IdGenerator;
 import com.hnuc.dao.UserMapper;
 import com.hnuc.pojo.User;
 import com.hnuc.pojo.UserReport;
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void saveUser(User user) {
         if(null != user){
-            user.setId(UUIDUtil.getUUID());
+            user.setId(IdGenerator.get());
             userMapper.insert(user);
         }
 
@@ -46,7 +46,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void updateUserInfo(User user) {
-
+        if(null != user && null != user.getId()){
+            userMapper.updateByPrimaryKeySelective(user);
+        }
     }
 
     @Override

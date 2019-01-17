@@ -2,15 +2,20 @@ package com.hnuc.api;
 
 import com.hnuc.common.util.JSONResult;
 import com.hnuc.common.util.MD5Util;
+import com.hnuc.common.util.RedisUtil;
+import com.hnuc.common.util.UUIDUtil;
 import com.hnuc.pojo.User;
+import com.hnuc.pojo.VO.UserVO;
 import com.hnuc.service.UserService;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-public class RegisterLoginController {
+import java.util.UUID;
 
+@RestController
+public class RegisterLoginController extends BaseController{
     @Autowired
     UserService userService;
 
@@ -27,7 +32,6 @@ public class RegisterLoginController {
             return JSONResult.errorMsg("用户名已存在");
         }
 
-
         //保存用户
         user.setNickname(user.getUsername());
         user.setPassword(MD5Util.getMD5Str(user.getPassword()));
@@ -36,8 +40,9 @@ public class RegisterLoginController {
         user.setFollowCounts(0);
         userService.saveUser(user);
 
+        user.setPassword("");
 
-        return new JSONResult(user);
+        return JSONResult.retOK(user);
     }
 
     //用户登陆
@@ -51,11 +56,32 @@ public class RegisterLoginController {
         user = userService.queryUserForLogin(user.getUsername(), MD5Util.getMD5Str(user.getPassword()));
 
         if(null != user){
-            return  new JSONResult(user);
+            user.setPassword("");
+            UserVO userVO = setUserRedisSessionToken(user);
+            return  JSONResult.retOK(userVO);
         }else{
             return JSONResult.errorMsg("用户名或密码错误");
         }
+    }
 
+    //用户注销
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public JSONResult logout(String userID) throws Exception {
+        if(null != userID) {
+            redisUtil.del(USER_REDIS_SESSION + ":" + userID);
+            return JSONResult.retOK(null);
+        }else{
+            return JSONResult.errorMsg("用户不存在");
+        }
+    }
+    private UserVO setUserRedisSessionToken(User user) {
+        String uniqueToken = UUIDUtil.getUUID();
 
+        redisUtil.set(USER_REDIS_SESSION + ":" + user.getId(), uniqueToken, 1000 * 60 * 30);
+
+        UserVO userVO = new UserVO();
+        BeanUtils.copyProperties(user, userVO);
+        userVO.setUserToken(uniqueToken);
+        return userVO;
     }
 }

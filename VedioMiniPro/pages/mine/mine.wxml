@@ -2,13 +2,13 @@
 <view>
   <view class='container'>
     <block wx:if="{{isMe}}">
-      <image src="{{userUrl}}" class='faceImage' bindtag='changeFace'></image>
+      <image src="{{iconUrl}}" class='faceImage' bindtap='changeFace'></image>
     </block>
     <block wx:if="{{!isMe}}">
-      <image src="{{userUrl}}" class='faceImage'></image>
+      <image src="{{iconUrl}}" class='faceImage'></image>
     </block>
     <block wx:if="{{isMe}}">
-      <button size='mini' type='primary' bindtap='uploadVideo'> 上传作品</button>
+      <button size='mini' type='primary' bindtap='changeFace'> 上传作品</button>
       <button size='mini' type='warn' class='logout' bindtap='logout'>注销</button>
     </block>
     <block wx:if="{{!isMe}}">

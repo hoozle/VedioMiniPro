@@ -180,12 +180,12 @@
     -->
     update users
     set username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      face_image = #{faceImage,jdbcType=VARCHAR},
-      nickname = #{nickname,jdbcType=VARCHAR},
-      fans_counts = #{fansCounts,jdbcType=INTEGER},
-      follow_counts = #{followCounts,jdbcType=INTEGER},
-      receive_like_counts = #{receiveLikeCounts,jdbcType=INTEGER}
+        password = #{password,jdbcType=VARCHAR},
+        face_image = #{faceImage,jdbcType=VARCHAR},
+        nickname = #{nickname,jdbcType=VARCHAR},
+        fans_counts = #{fansCounts,jdbcType=INTEGER},
+        follow_counts = #{followCounts,jdbcType=INTEGER},
+        receive_like_counts = #{receiveLikeCounts,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

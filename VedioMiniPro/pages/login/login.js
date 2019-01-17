@@ -19,12 +19,12 @@ Page({
           duration: 2000
         });        
       }else{
-        var ServiceUrl = app.serverUrl + '/login';
+        var serviceUrl = app.serverUrl + '/login';
         wx.showLoading({
           title: '请稍等！',
         })
         wx.request({
-          url: ServiceUrl,
+          url: serviceUrl,
           method: "POST",
           dataType: "json",
           header: {
@@ -37,6 +37,7 @@ Page({
           success: function(res){
             wx.hideLoading();
             if(res.data.status == 200){
+            	app.globalData.userInfo = res.data.data;
 	        	wx.navigateTo({
 	        		url:'../mine/mine'
 	        	})   
