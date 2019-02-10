@@ -1,6 +1,6 @@
 /**mine.wxss**/
 page {
-  background-color: lightsalmon
+  background-color: #CFCFCF
 }
 
 .container {
@@ -41,5 +41,18 @@ page {
 }
 
 .video-info-selected {
-    background-color: gainsboro;
+    background-color: #5C5C5C;
 }
+
+.container-video-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.videoImage {
+    width: 250rpx;
+    height: 180px;
+}
+
+

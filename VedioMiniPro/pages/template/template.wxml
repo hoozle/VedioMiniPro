@@ -1,0 +1,11 @@
+<!--template.wxml-->
+<template name="tabbar">
+	<view class="tabbar">
+		<block wx:for="{{tabbar}}" wx:for-index="idx" wx:for-item="item" wx:key="iconPath">
+			<view class="tabbar-item" id="mytab-{{idx}}"bindtap="select">
+				<view><image class="icon" src='{{item.iconPath}}'></image></view>
+            	<view class="{{item.isSelected== 1 ? 'tabbartext' :''}}">{{item.text}}</view>
+			</view>
+		</block>
+	</view>
+</template>

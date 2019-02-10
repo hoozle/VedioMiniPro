@@ -1,4 +1,6 @@
 <!--mine.wxml-->
+<import src="../template/template.wxml"/>
+<scroll-view scroll-y="{{true}}" style="height:1075rpx;" bindscrolltolower="goToNextPage">
 <view>
   <view class='container'>
     <block wx:if="{{isMe}}">
@@ -8,7 +10,7 @@
       <image src="{{iconUrl}}" class='faceImage'></image>
     </block>
     <block wx:if="{{isMe}}">
-      <button size='mini' type='primary' bindtap='changeFace'> 上传作品</button>
+      <button size='mini' type='primary' bindtap='upLoadVedio'> 上传作品</button>
       <button size='mini' type='warn' class='logout' bindtap='logout'>注销</button>
     </block>
     <block wx:if="{{!isMe}}">
@@ -61,3 +63,5 @@
 </view>
 
 </view>
+</scroll-view>
+<template is="tabbar" data="{{tabbar:bindData.tabbar}}"/>

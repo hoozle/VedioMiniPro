@@ -1,13 +1,31 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+<import src="../template/template.wxml"/>
+
+<view class="weui-search-bar" >
+   <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="请输入查询内容" disabled="{{true}}" bindtap="gotoSearch"/>
+    </view>
   </view>
 </view>
+
+<scroll-view scroll-y="{{true}}" style="height:960rpx;" bindscrolltolower="gotoNextPage">
+  <view  wx:for="{{videos}}" class="item-container">  
+     <view style='width:{{screenWidth}}px;height:180px;' class='back-img'> 
+        <image src="{{serverUrl}}{{item.coverPath}}" style='width:{{screenWidth}}px;height:180px;' mode="aspectFit" bindtap='showVideoInfo' data-arrindex='{{index}}'></image>
+     </view> 
+
+
+    <view class="desc">
+        <view class="faceName">
+            <image class='myface' src="{{serverUrl}}{{item.faceImage}}"></image>
+            <view class="nickname">{{item.nickname}}</view>
+        </view>
+    </view>
+  </view>
+</scroll-view>
+
+
+
+<template is="tabbar" data="{{tabbar:bindData.tabbar}}"/>

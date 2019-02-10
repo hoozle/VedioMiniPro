@@ -1,14 +1,18 @@
 {
   "pages":[
+    "pages/index/index",
+    "pages/searchView/searchView",
+    "pages/videoInfo/videoInfo",
     "pages/login/login",
+    "pages/chooseBgm/chooseBgm",
     "pages/register/register",
-    "pages/mine/mine",
-    "pages/index/index"
+    "pages/mine/mine"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "小视频",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":true
   }
 }

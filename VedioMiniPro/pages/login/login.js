@@ -37,15 +37,15 @@ Page({
           success: function(res){
             wx.hideLoading();
             if(res.data.status == 200){
-            	app.globalData.userInfo = res.data.data;
-	        	wx.navigateTo({
-	        		url:'../mine/mine'
-	        	})   
+            	app.setGlobalUser(res.data.data);
+  	        	wx.navigateTo({
+  	        		url : '../mine/mine'
+  	        	})   
             }else{
             	wx.showToast({
             	  title: res.data.msg,
-		          icon: 'none',
-		          duration: 2000
+  		          icon: 'none',
+  		          duration: 2000
             	})
             }
           },
